@@ -5,7 +5,7 @@ public class Process {
 
 	private String processInstanceUuId;
 	private String processName;
-	private String status;
+	private Integer status;
 
   public String getProcessInstanceUuId(){
     return processInstanceUuId;
