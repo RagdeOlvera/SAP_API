@@ -1,4 +1,4 @@
-package org.Banxico.Proyecto1.dao;
+package org.banxico.dds.proyectoweb.dao;
 
 import java.sql.Connection;
 import java.sql.SQLException;
