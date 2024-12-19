@@ -1,0 +1,124 @@
+/* General styles for body and layout */
+body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header styles */
+header img {
+    margin: 10px 0;
+    border: none;
+}
+
+h4 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Table styles */
+table {
+    margin: 20px auto;
+    border-collapse: collapse;
+    width: 80%;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+table th,
+table td {
+    padding: 10px 15px;
+    text-align: center;
+    border: 1px solid #a2b8d2;
+}
+
+table th {
+    background-color: #a2b8d2;
+    color: white;
+    font-weight: bold;
+}
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Hidden class for toggleable elements */
+.hidden {
+    display: none;
+}
+
+/* Button styles */
+button,
+input[type="button"] {
+    background-color: #0078d4;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 10px 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover,
+input[type="button"]:hover {
+    background-color: #005a9e;
+}
+
+button:disabled,
+input[type="button"]:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+/* Input fields */
+input[type="text"] {
+    width: 90%;
+    padding: 8px;
+    margin: 5px 0;
+    box-sizing: border-box;
+    border: 1px solid #a2b8d2;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: #0078d4;
+}
+
+/* Utility classes */
+.center {
+    text-align: center;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+.mb-20 {
+    margin-bottom: 20px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    table {
+        width: 100%;
+    }
+
+    input[type="text"],
+    button {
+        width: 100%;
+        font-size: 16px;
+    }
+}
