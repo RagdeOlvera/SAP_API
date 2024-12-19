@@ -27,7 +27,7 @@ public class TaskController extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 		String foliosPermisos = request.getParameter("foliosPermisos");
 		
-		if (foliosPermisos != null) {  
+		if (foliosPermisos == null) {  
 			gestionarTareas(request, response);
 		}else {
 			asignarPermisos(request, response, foliosPermisos);
@@ -36,7 +36,7 @@ public class TaskController extends HttpServlet {
 	
 	@Override
 	public void doPost(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
+			HttpServletResponse response) throws ServletException, IOException { //Realiza cambios a Task (cve, estado)
 		
 		String[] taskIds = request.getParameterValues("taskId");
 		
@@ -79,7 +79,7 @@ public class TaskController extends HttpServlet {
 		 String[] folios = separarFolios(foliosPermisos);
 		 String cadenaFolios = prepararCadena(folios);
 		 String errorMessage = "";
-		 String sid = "";
+		 String sid = taskDao.obtenerTaskIds(request.getParameter("cve"));
 				 
 		 if (cadenaFolios != null) {
 			 String taskIds = taskDao.obtenerTaskIds(cadenaFolios);
@@ -93,7 +93,7 @@ public class TaskController extends HttpServlet {
 			 errorMessage = "No se encontraron folios";
 			  request.setAttribute("errorMessage", errorMessage);
 		 }
-		 enviarVista(request, response, "ActualizarTask.jsp");
+		 enviarVista(request, response, "AsignarPermisos.jsp");
 		 
 	 }
 	
