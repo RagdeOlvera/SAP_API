@@ -7,11 +7,13 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.management.relation.Role;
+
 import org.banxico.dds.proyectoweb.entity.Empleado;
 import org.banxico.dds.proyectoweb.entity.Task;
 
-import jakarta.inject.Inject;
 import jakarta.enterprise.context.RequestScoped;
+import jakarta.inject.Inject;
 
 @RequestScoped
 public class TaskDao {
@@ -306,5 +308,51 @@ public class TaskDao {
 			e.printStackTrace();
 		}
 	
+	}
+	
+	public List<Role> permisosAsignados(String processInstanceUuId) { // Metodo para hacer un Select de las tareas por el folio
+
+		String query = "SELECT rc.activityId, rc.roleName, i.cve_empleado, t.processInstanceUuid\r\n"
+				+ "FROM role_cache rc"
+				+ "JOIN task t ON rc.activityId = t.taskId"
+				+ "JOIN identidad i ON i.sid = rc.SID"
+				+ "WHERE t.processInstanceUuid = ?;";
+
+		List<Role> roles = new ArrayList<>();
+		Role tarea = null; // Inicializa actor en null
+
+		try {
+			Connection conexion = conexionUtil.obtenerConexion();
+			PreparedStatement statement = conexion.prepareStatement(query);
+
+			statement.setString(1, processInstanceUuId);
+
+			ResultSet rs = statement.executeQuery();
+
+			while (rs.next()) {/*
+				tarea = new Task();
+				tarea.setTaskId(rs.getInt("taskId"));
+				tarea.setProcessInstanceUuId(rs.getString("processInstanceUuId"));
+				tarea.setName(rs.getString("name"));
+				
+				//Cambia la vista de SID a cve_Empleado
+				String sid = rs.getString("actualOwner");
+				String cve = obtenerCve(sid).getCve_empleado();
+				tarea.setActualOwner(cve); 
+				
+				tarea.setTaskStatus(rs.getInt("TaskStatus"));
+
+				tareas.add(tarea);*/
+			}
+
+			rs.close();
+			conexion.close();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return roles;
 	}
 }
