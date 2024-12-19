@@ -40,6 +40,7 @@
         
     
     </script>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
 
 <body onload="" style="text-align: center;">

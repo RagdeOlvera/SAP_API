@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-    <title>Actualizar Tareas</title>
+    <title>Asignar Permisos</title>
 
     <style type="text/css">
         .hidden {
@@ -40,6 +40,7 @@
         
     
     </script>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
 
 <body onload="" style="text-align: center;">
@@ -55,17 +56,17 @@
             <img style="-webkit-user-select: none;" border="0" src="http://www.banxico.org.mx/apps_header.png" width="1024" height="74">
         </a>
 
-        <form id="getProcess" action="Task" method="post">
-            <h4>Actualizar Tareas</h4>
+        <form id="getProcess" action="Task" method="get">
+            <h4>Asignar Permisos</h4>
             <br>
             <table id="proceso" style="margin: 0 auto;" border="0" class="">
 
                 <tr bgcolor="A2B8D2">
-                    <td width="250px" align="right"><b>Folio de la Tarea:</b></td>
+                    <td width="250px" align="right"><b>Folios para Permisos:</b></td>
                     <td align="left"><input 
                             type="text"
-                            name="processInstanceUuId"
-                            id="processInstanceUuId"
+                            name="foliosPermisos"
+                            id="foliosPermisos"
                             value="" 
                             required/>
                     </td>            

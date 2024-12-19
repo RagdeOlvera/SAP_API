@@ -36,6 +36,7 @@
 		document.getElementById('actualizarProceso').submit();
 	}
 </script>
+<link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
 
 <body onload="" style="text-align: center;">
@@ -86,6 +87,7 @@
 						</tr>
 					</table>
 				</form>
+				
 				<form id="operarTareaForm" action="Task" method="POST">
 					<table id="operarTarea" style="margin: 0 auto;" border="0"
 						class="hidden">
